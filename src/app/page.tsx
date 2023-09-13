@@ -1,19 +1,8 @@
-import fs from 'fs';
-
+import clsx from 'clsx';
 import Link from 'next/link';
+import { FaChevronRight } from 'react-icons/fa';
 
-const getFileNames = () => {
-  const rootPath = 'src/app';
-  const fileList = fs.readdirSync(rootPath);
-  const ignoreNames = ['providers'];
-
-  return fileList.filter(
-    (file) =>
-      !ignoreNames.includes(file) &&
-      !file.endsWith('.tsx') &&
-      !file.endsWith('.ico'),
-  );
-};
+import { getFileNames } from '@/utils/getPathnames';
 
 export default function Home() {
   const fileList = getFileNames();
@@ -25,9 +14,17 @@ export default function Home() {
         {fileList.map((file) => (
           <Link
             key={file}
-            className="font-mono text-2xl font-bold hover:underline"
+            className={clsx([
+              'group flex items-center gap-2 font-mono text-2xl font-bold',
+              'hover:text-teal-500 dark:hover:text-teal-300',
+              'focus:text-teal-500 focus:outline-none dark:focus:text-teal-300',
+            ])}
             href={`/${file}`}
           >
+            <FaChevronRight
+              className="invisible group-hover:visible group-focus:visible"
+              size={20}
+            />
             ~/{file}/
           </Link>
         ))}
