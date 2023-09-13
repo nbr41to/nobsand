@@ -44,14 +44,14 @@ export default function RootLayout({
       >
         <MantineProvider>
           <SpotlightProvider filenames={filenames}>
-            <header className="flex justify-between border-b border-slate-900 p-4 dark:border-white">
+            <header className="grid grid-cols-3 border-b border-slate-900 p-4 dark:border-white">
               <SiPowershell size={32} />
               <Link href="/" title="home">
                 <h1 className="text-center font-baloo text-4xl">nobsand</h1>
               </Link>
-              <div className="flex items-center gap-2">
-                <SearchButton />
+              <div className="ml-auto flex items-center gap-4">
                 <ToggleTheme />
+                <SearchButton />
               </div>
             </header>
             <main className="p-10">{children}</main>

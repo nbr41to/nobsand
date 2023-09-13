@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import { FaChevronRight } from 'react-icons/fa';
+import { FaQuestion } from 'react-icons/fa6';
 
 import { getFileNames } from '@/utils/getPathnames';
 
@@ -9,7 +10,10 @@ export default function Home() {
 
   return (
     <div className="">
-      <h1 className="py-8 text-center font-baloo text-4xl">_MENU_</h1>
+      <h1 className="flex items-center justify-center gap-1 py-6 font-mono text-2xl font-bold">
+        <FaQuestion className="text-teal-500 dark:text-teal-300" />
+        Please select something to play.
+      </h1>
       <div className="mx-auto flex w-fit flex-col gap-2">
         {fileList.map((file) => (
           <Link

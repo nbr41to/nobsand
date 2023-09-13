@@ -52,6 +52,7 @@ export const ToggleTheme: FC = () => {
   return (
     <div>
       <ActionIcon
+        radius={9999}
         variant="filled"
         color={value === darkModeClassName ? 'blue' : 'yellow'}
         size="lg"
