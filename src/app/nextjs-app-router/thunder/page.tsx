@@ -1,9 +1,26 @@
-import { GiBananaBunch } from 'react-icons/gi';
+import { Suspense } from 'react';
 
-export default function BananaPage() {
+import { ClientComponent } from '@/app/nextjs-app-router/thunder/components/ClientComponent';
+import { ServerComponent } from '@/app/nextjs-app-router/thunder/components/ServerComponent';
+
+export default function ThunderPage() {
   return (
     <div>
-      <GiBananaBunch size={60} />
+      <div className="text-center text-8xl">
+        ⚡️... <span className="text-3xl">🚗</span> 😱
+      </div>
+      <div className="mt-8 flex justify-center gap-4">
+        <ClientComponent />
+        <Suspense
+          fallback={
+            <div className="grid h-48 w-48 animate-pulse place-content-center rounded border">
+              loading...
+            </div>
+          }
+        >
+          <ServerComponent />
+        </Suspense>
+      </div>
     </div>
   );
 }
