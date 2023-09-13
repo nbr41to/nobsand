@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { SiPowershell } from 'react-icons/si';
 
+import { MantineProvider } from '@/app/providers/MantineProvider';
 import { ToggleTheme } from '@/components/ToggleTheme';
 import {
   baloo2,
@@ -32,18 +33,20 @@ export default function RootLayout({
           firaCode.variable,
           baloo2.variable,
           mPlusRounded1c.variable,
-          'dark:bg-slate-900 dark:text-slate-100',
+          'bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100',
         ])}
       >
-        <header className="flex justify-between border-b border-slate-900 p-4 dark:border-white">
-          <SiPowershell size={32} />
-          <Link href="/" title="top">
-            <h1 className="text-center font-baloo text-4xl">nobsand</h1>
-          </Link>
-          <ToggleTheme />
-        </header>
-        <main className="p-10">{children}</main>
-        <footer></footer>
+        <MantineProvider>
+          <header className="flex justify-between border-b border-slate-900 p-4 dark:border-white">
+            <SiPowershell size={32} />
+            <Link href="/" title="top">
+              <h1 className="text-center font-baloo text-4xl">nobsand</h1>
+            </Link>
+            <ToggleTheme />
+          </header>
+          <main className="p-10">{children}</main>
+          <footer></footer>
+        </MantineProvider>
       </body>
     </html>
   );

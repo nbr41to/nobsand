@@ -1,7 +1,10 @@
 'use client';
-import { ActionIcon } from '@mantine/core';
+
+import type { FC } from 'react';
+
+import { ActionIcon, useMantineColorScheme } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
-import { useEffect, type FC } from 'react';
+import { useEffect } from 'react';
 import { BsSun, BsMoonStarsFill } from 'react-icons/bs';
 
 const darkModeClassName = 'dark';
@@ -15,6 +18,7 @@ export const ToggleTheme: FC = () => {
     key: 'color-scheme',
     defaultValue: darkModeClassName,
   });
+  const { toggleColorScheme } = useMantineColorScheme();
 
   useEffect(() => {
     if (
@@ -24,20 +28,24 @@ export const ToggleTheme: FC = () => {
     ) {
       addDarkModeClassName();
       setValue(darkModeClassName);
+      toggleColorScheme('dark');
     } else {
       removeDarkModeClassName();
+      toggleColorScheme('light');
     }
   }, []);
 
-  const toggleColorScheme = () => {
+  const toggleTheme = () => {
     // htmlタグにdarkクラスが含まれているかどうか
     if (document.documentElement.classList.contains(darkModeClassName)) {
       // darkクラスが含まれているならライトモードに変更
       removeDarkModeClassName();
       setValue('');
+      toggleColorScheme('light');
     } else {
       addDarkModeClassName();
       setValue(darkModeClassName);
+      toggleColorScheme('dark');
     }
   };
 
@@ -47,7 +55,7 @@ export const ToggleTheme: FC = () => {
         variant="filled"
         color={value === darkModeClassName ? 'blue' : 'yellow'}
         size="lg"
-        onClick={toggleColorScheme}
+        onClick={toggleTheme}
       >
         {value === darkModeClassName ? (
           <BsSun size={18} />

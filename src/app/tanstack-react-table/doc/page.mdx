@@ -1,0 +1,82 @@
+# Tanstack React Table
+
+[Reference](https://tanstack.com/table/v8)
+
+## Overview
+
+React TableがV8あたりからTanstack React Tableとして生まれ変わったらしい。
+
+```tsx
+const columnHelper = createColumnHelper<TableData>();
+```
+
+で,テーブルの雛形？枠組？をデータがない状態で定義することができる。
+
+````tsx
+### `columnHelper.display` でデータをまとめることができる
+
+```tsx
+columnHelper.display({
+  id: 'name',
+  header: () => 'Name',
+  cell: (info) => (
+    <div>
+      {info.row.original.firstName} {info.row.original.lastName}
+    </div>
+  ),
+  footer: (info) => info.column.id,
+}),
+````
+
+### `columnHelper.display` でheaderのグループ化ができる
+
+`columnHelper.group`の中のcolumnsにまた`columnHelper.accessor`とかを入れてく感じ
+
+```tsx
+const columnHelper = createColumnHelper<TableData>();
+const columns = [
+  columnHelper.group({
+    id: 'user',
+    header: () => <div className="text-center font-bold">User</div>,
+    columns: [
+      columnHelper.display({
+        id: 'name',
+        header: () => 'Name',
+        cell: (info) => (
+          <div>
+            {info.row.original.firstName} {info.row.original.lastName}
+          </div>
+        ),
+        footer: (info) => info.column.id,
+      }),
+      columnHelper.accessor('age', {
+        header: () => 'Age',
+        cell: (info) => info.renderValue(),
+        footer: (info) => info.column.id,
+      }),
+    ],
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.group({
+    id: 'service',
+    header: () => <div className="text-center font-bold">Service</div>,
+    columns: [
+      columnHelper.accessor('email', {
+        header: () => 'Email',
+        cell: (info) => info.renderValue(),
+        footer: (info) => info.column.id,
+      }),
+      columnHelper.accessor('plan', {
+        header: () => 'Plan',
+        cell: (info) => info.renderValue(),
+        footer: (info) => info.column.id,
+      }),
+    ],
+    footer: (info) => info.column.id,
+  }),
+];
+```
+
+## 参考URL
+
+-

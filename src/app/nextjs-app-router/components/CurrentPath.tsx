@@ -17,7 +17,7 @@ export const CurrentPath: FC = () => {
   };
 
   return (
-    <div>
+    <div className="font-bold">
       {pathnames.map((path, index) => (
         <Link
           key={index}

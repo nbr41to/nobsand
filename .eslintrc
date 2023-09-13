@@ -5,6 +5,14 @@
     "prettier"
   ],
   "plugins": ["import", "unused-imports"],
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "out/",
+    "build/",
+    ".next/",
+    "next.config.js"
+  ],
   "rules": {
     "no-console": ["error"],
     "unused-imports/no-unused-imports": "error",

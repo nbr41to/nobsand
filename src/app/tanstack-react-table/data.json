@@ -1,0 +1,44 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john@example.com",
+    "age": 30,
+    "plan": "Basic"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane@example.com",
+    "age": 25,
+    "plan": "Premium"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "email": "michael@example.com",
+    "age": 35,
+    "plan": "Standard"
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "email": "emily@example.com",
+    "age": 28,
+    "plan": "Pro"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Brown",
+    "email": "david@example.com",
+    "age": 32,
+    "plan": "Enterprise"
+  },
+  {
+    "firstName": "Sarah",
+    "lastName": "Wilson",
+    "email": "sarah@example.com",
+    "age": 27,
+    "plan": "Advanced"
+  }
+]
