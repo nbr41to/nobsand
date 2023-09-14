@@ -8,12 +8,7 @@ import { MantineProvider } from '@/app/providers/MantineProvider';
 import { SpotlightProvider } from '@/app/providers/SpotlightProvider';
 import { SearchButton } from '@/components/SearchButton';
 import { ToggleTheme } from '@/components/ToggleTheme';
-import {
-  baloo2,
-  firaCode,
-  mPlusRounded1c,
-  notoSansJP,
-} from '@/styles/googleFont';
+import { baloo2, firaCode, notoSansJP } from '@/styles/googleFont';
 import { getFileNames } from '@/utils/getPathnames';
 
 import '@/styles/globals.css';
@@ -38,7 +33,6 @@ export default function RootLayout({
           notoSansJP.variable,
           firaCode.variable,
           baloo2.variable,
-          mPlusRounded1c.variable,
           'bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100',
         ])}
       >

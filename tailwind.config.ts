@@ -18,7 +18,6 @@ const config: Config = {
         baloo: ['var(--font-baloo-2)'],
         notoSansJp: ['var(--font-noto-sans-jp)'],
         firaCode: ['var(--font-fira-code)'],
-        'm-plus': ['var(--font-m-plus-rounded-1c)'],
       },
     },
   },

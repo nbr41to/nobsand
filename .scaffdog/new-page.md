@@ -47,7 +47,7 @@ export default function {{ inputs.value | pascal }}Page() {
 
 <!-- Document -->
 
-# `{{ inputs.value | kebab }}/doc/page.mdx`
+# `{{ inputs.value | kebab }}/doc/document.mdx`
 
 ```md
 # {{ inputs.value }}
@@ -59,4 +59,15 @@ export default function {{ inputs.value | pascal }}Page() {
 ## 参考URL
 
 -
+```
+
+# `{{ inputs.value | kebab }}/doc/page.tsx`
+
+```tsx
+'use client';
+
+import DocumentMDX from './document.mdx';
+export default function Page() {
+  return <DocumentMDX />;
+}
 ```
