@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import clsx from 'clsx';
 import Link from 'next/link';
+import { FaGithub } from 'react-icons/fa';
 import { SiPowershell } from 'react-icons/si';
 
 import { MantineProvider } from '@/app/providers/MantineProvider';
@@ -44,6 +45,13 @@ export default function RootLayout({
                 <h1 className="text-center font-baloo text-4xl">nobsand</h1>
               </Link>
               <div className="ml-auto flex items-center gap-4">
+                <a
+                  href="https://github.com/nbr41to/nobsand/tree/main"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub size={32} />
+                </a>
                 <ToggleTheme />
                 <SearchButton />
               </div>
