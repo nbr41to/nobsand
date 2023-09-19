@@ -67,6 +67,7 @@ export default function {{ inputs.value | pascal }}Page() {
 'use client';
 
 import DocumentMDX from './document.mdx';
+
 export default function Page() {
   return <DocumentMDX />;
 }

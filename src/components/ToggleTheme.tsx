@@ -22,8 +22,8 @@ export const ToggleTheme: FC = () => {
 
   useEffect(() => {
     if (
-      localStorage.theme === darkModeClassName ||
-      (!('theme' in localStorage) &&
+      localStorage['color-scheme'] === darkModeClassName ||
+      (!('color-scheme' in localStorage) &&
         window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
       addDarkModeClassName();
@@ -42,10 +42,12 @@ export const ToggleTheme: FC = () => {
       removeDarkModeClassName();
       setValue('');
       toggleColorScheme('light');
+      localStorage.removeItem('theme');
     } else {
       addDarkModeClassName();
       setValue(darkModeClassName);
       toggleColorScheme('dark');
+      localStorage.setItem('theme', darkModeClassName);
     }
   };
 

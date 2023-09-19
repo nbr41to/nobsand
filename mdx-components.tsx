@@ -41,13 +41,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </CodeBlock>
       );
     },
-    // code: ({ className, children }) => (
-    //   <CodeBlock language={className?.replace('language-', '')}>
-    //     {children as string}
-    //   </CodeBlock>
-    // ),
-    // code: (props) => <pre>{JSON.stringify(props, null, 2)}</pre>,
-    // pre: (props) => <pre>{JSON.stringify(props, null, 2)}</pre>,
     ...components,
   };
 }

@@ -50,7 +50,7 @@ export default function RootLayout({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaGithub size={32} />
+                  <FaGithub size={34} />
                 </a>
                 <ToggleTheme />
                 <SearchButton />
