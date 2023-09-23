@@ -1,19 +1,26 @@
+import '@/styles/globals.css';
+import '@mantine/core/styles.css';
+import '@/styles/destyle.css';
+import '@mantine/spotlight/styles.css';
+import '@mantine/code-highlight/styles.css';
+import '@mantine/notifications/styles.css';
+
 import type { Metadata } from 'next';
 
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import clsx from 'clsx';
+import Head from 'next/head';
 import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
 import { SiPowershell } from 'react-icons/si';
 
-import { MantineProvider } from '@/app/providers/MantineProvider';
-import { SpotlightProvider } from '@/app/providers/SpotlightProvider';
+import { Spotlight } from '@/app/providers/SpotlightProvider';
+import { BgReactIcon } from '@/components/BgReactIcon';
 import { SearchButton } from '@/components/SearchButton';
 import { ToggleTheme } from '@/components/ToggleTheme';
 import { baloo2, firaCode, notoSansJP } from '@/styles/googleFont';
 import { getFileNames } from '@/utils/getPathnames';
-
-import '@/styles/globals.css';
-import '@/styles/destyle.css';
 
 export const metadata: Metadata = {
   title: 'nobsand',
@@ -28,17 +35,23 @@ export default function RootLayout({
   const filenames = getFileNames();
 
   return (
-    <html lang="ja">
-      <body
-        className={clsx([
-          notoSansJP.variable,
-          firaCode.variable,
-          baloo2.variable,
-          'bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100',
-        ])}
-      >
-        <MantineProvider>
-          <SpotlightProvider filenames={filenames}>
+    <>
+      <Head>
+        <ColorSchemeScript defaultColorScheme="dark" />
+      </Head>
+      <html lang="ja">
+        <body
+          className={clsx([
+            notoSansJP.variable,
+            firaCode.variable,
+            baloo2.variable,
+            'bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100',
+          ])}
+        >
+          <MantineProvider>
+            <BgReactIcon />
+            <Notifications />
+            <Spotlight filenames={filenames} />
             <header className="grid grid-cols-3 border-b border-slate-900 p-4 dark:border-white">
               <SiPowershell size={32} />
               <Link href="/" title="home">
@@ -58,9 +71,9 @@ export default function RootLayout({
             </header>
             <main className="p-10">{children}</main>
             <footer></footer>
-          </SpotlightProvider>
-        </MantineProvider>
-      </body>
-    </html>
+          </MantineProvider>
+        </body>
+      </html>
+    </>
   );
 }

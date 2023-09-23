@@ -3,9 +3,10 @@
 import type { ZodError, ZodFormattedError } from 'zod';
 
 import { Button } from '@mantine/core';
-import { Prism } from '@mantine/prism';
 import { useState } from 'react';
 import { z } from 'zod';
+
+import { JsonViewer } from '@/components/JsonViewer';
 
 const schema = z.object({
   string: z.string(), // stringじゃないとダメ
@@ -54,7 +55,7 @@ export default function ZodPage() {
         {parsed && (
           <div className="py-4">
             <p className="font-bold">Parsed data</p>
-            <Prism language="json">{JSON.stringify(parsed, null, 2)}</Prism>
+            <JsonViewer data={parsed} />
           </div>
         )}
 
@@ -63,13 +64,11 @@ export default function ZodPage() {
             <p className="font-bold text-red-500">
               Parse Error (Validation Error)
             </p>
-            <Prism language="json">{JSON.stringify(errors, null, 2)}</Prism>
+            <JsonViewer data={errors} />
             <p className="font-bold text-red-500">
               Formatted Error <code>(error as ZodError).format()</code>
             </p>
-            <Prism language="json">
-              {JSON.stringify(formattedErrors, null, 2)}
-            </Prism>
+            <JsonViewer data={formattedErrors} />
           </div>
         )}
       </div>

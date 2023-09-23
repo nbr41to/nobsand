@@ -1,41 +1,35 @@
 'use client';
 
-import { SpotlightProvider as BaseSpotlightProvider } from '@mantine/spotlight';
+import { Spotlight as BaseSpotlight } from '@mantine/spotlight';
 import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 
 /**
  * @see https://mantine.dev/others/spotlight/
  */
-export const SpotlightProvider = ({
-  filenames,
-  children,
-}: {
-  filenames: string[];
-  children: React.ReactNode;
-}) => {
+export const Spotlight = ({ filenames }: { filenames: string[] }) => {
   const router = useRouter();
   const actions = useMemo(() => {
     if (filenames.length === 0) return [];
 
     return filenames.map((filename) => ({
-      title: filename,
-      onTrigger: () => router.push(`/${filename}`),
+      id: filename,
+      label: filename,
+      onClick: () => router.push(`/${filename}`),
     }));
   }, [filenames, router]);
 
   return (
-    <BaseSpotlightProvider
+    <BaseSpotlight
       actions={[
         {
-          title: 'home',
-          onTrigger: () => router.push('/'),
+          id: 'home',
+          label: 'home',
+          onClick: () => router.push('/'),
         },
         ...actions,
       ]}
       shortcut={['mod + P', 'mod + K', '/']}
-    >
-      {children}
-    </BaseSpotlightProvider>
+    />
   );
 };

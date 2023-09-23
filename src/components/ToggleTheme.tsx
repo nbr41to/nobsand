@@ -15,23 +15,22 @@ const removeDarkModeClassName = () =>
 
 export const ToggleTheme: FC = () => {
   const [value, setValue] = useLocalStorage({
-    key: 'color-scheme',
+    key: 'theme',
     defaultValue: darkModeClassName,
   });
-  const { toggleColorScheme } = useMantineColorScheme();
+  const { setColorScheme } = useMantineColorScheme();
 
   useEffect(() => {
     if (
-      localStorage['color-scheme'] === darkModeClassName ||
-      (!('color-scheme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
+      value === darkModeClassName ||
+      localStorage.getItem('theme') === darkModeClassName
     ) {
       addDarkModeClassName();
       setValue(darkModeClassName);
-      toggleColorScheme('dark');
+      setColorScheme('dark');
     } else {
       removeDarkModeClassName();
-      toggleColorScheme('light');
+      setColorScheme('light');
     }
   }, []);
 
@@ -41,12 +40,12 @@ export const ToggleTheme: FC = () => {
       // darkクラスが含まれているならライトモードに変更
       removeDarkModeClassName();
       setValue('');
-      toggleColorScheme('light');
+      setColorScheme('light');
       localStorage.removeItem('theme');
     } else {
       addDarkModeClassName();
       setValue(darkModeClassName);
-      toggleColorScheme('dark');
+      setColorScheme('dark');
       localStorage.setItem('theme', darkModeClassName);
     }
   };

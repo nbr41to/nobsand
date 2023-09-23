@@ -1,7 +1,8 @@
 'use client';
 import { Button } from '@mantine/core';
-import { Prism } from '@mantine/prism';
 import { useState } from 'react';
+
+import { JsonViewer } from '@/components/JsonViewer';
 
 export default function TryCatchPage() {
   const [error, setError] = useState<Error>();
@@ -47,9 +48,8 @@ export default function TryCatchPage() {
       <Button onClick={function2}>function2</Button>
       <Button onClick={function3}>function3</Button>
       <Button onClick={function4}>function4</Button>
-      {error && (
-        <Prism language="json">{JSON.stringify(error.message, null, 2)}</Prism>
-      )}
+
+      {error && <JsonViewer data={error} />}
     </div>
   );
 }
