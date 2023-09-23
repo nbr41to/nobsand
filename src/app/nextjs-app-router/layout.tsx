@@ -18,8 +18,6 @@ export default function NextjsAppRouterLayout({
 }: {
   children: ReactNode;
 }) {
-  console.log('NextjsAppRouterLayout');
-
   return (
     <div className="space-y-8">
       <PageHeader title="Nextjs App Router" pathname="nextjs-app-router" />
