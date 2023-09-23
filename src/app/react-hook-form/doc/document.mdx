@@ -11,6 +11,26 @@ ReactでのForm作成をいい感じにしてくれるライブラリ
 - FormProviderを使用することでネストされた入力Componentの値を取得できる
 - FieldArrayを使用することで配列の入力を扱える
 
+### 最も簡単なサンプル
+
+```tsx
+export const Basic: FC = () => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data: FormValues) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('firstName')} />
+      <input {...register('lastName')} />
+      <input type="submit" />
+    </form>
+  );
+};
+```
+
 ## 参考URL
 
 -
