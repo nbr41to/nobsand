@@ -1,3 +1,4 @@
+import { RefreshButton } from '@/app/static-site-generation/components/RefreshButton';
 import { CodeBlock } from '@/components/CodeBlock';
 import { JsonViewer } from '@/components/JsonViewer';
 
@@ -34,6 +35,7 @@ export const ServerSideRendering = async () => {
       </CodeBlock>
       <p>response</p>
       <JsonViewer data={data} />
+      <RefreshButton />
     </div>
   );
 };

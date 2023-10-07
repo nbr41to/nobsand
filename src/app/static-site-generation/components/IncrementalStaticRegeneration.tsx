@@ -1,7 +1,8 @@
+import { RefreshButton } from '@/app/static-site-generation/components/RefreshButton';
 import { CodeBlock } from '@/components/CodeBlock';
 import { JsonViewer } from '@/components/JsonViewer';
 
-export const revalidate = 60; // 1分ごとに再生成する
+export const revalidate = 30; // データの再検証時間（秒単位）
 const getTime = async () => {
   const response = await fetch(
     'http://worldtimeapi.org/api/timezone/Asia/Tokyo',
@@ -34,6 +35,7 @@ const getTime = async () => {
       </CodeBlock>
       <p>response</p>
       <JsonViewer data={data} />
+      <RefreshButton />
     </div>
   );
 };
