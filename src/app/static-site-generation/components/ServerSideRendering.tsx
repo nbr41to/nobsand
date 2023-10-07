@@ -2,7 +2,6 @@ import { CodeBlock } from '@/components/CodeBlock';
 import { JsonViewer } from '@/components/JsonViewer';
 
 const getTime = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const response = await fetch(
     'http://worldtimeapi.org/api/timezone/Asia/Tokyo',
     { cache: 'no-store' }, // SSRしたい場合はキャッシュを無効化する

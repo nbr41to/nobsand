@@ -3,7 +3,6 @@ import { JsonViewer } from '@/components/JsonViewer';
 
 export const revalidate = 60; // 1分ごとに再生成する
 const getTime = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const response = await fetch(
     'http://worldtimeapi.org/api/timezone/Asia/Tokyo',
   );
