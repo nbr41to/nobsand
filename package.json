@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "bun next build",
     "dev": "bun next dev",
     "lint": "next lint",
     "spj": "bunx sort-package-json",
     "start": "next start",
-    "new": "scaffdog generate"
+    "new": "scaffdog generate",
+    "env_pull_dev": "bun vercel env pull --environment=development .env.local"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
