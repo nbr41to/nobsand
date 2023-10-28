@@ -10,7 +10,6 @@ import type { Metadata } from 'next';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import clsx from 'clsx';
-import Head from 'next/head';
 import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
 import { SiPowershell } from 'react-icons/si';
@@ -36,9 +35,9 @@ export default function RootLayout({
 
   return (
     <>
-      <Head>
+      <head>
         <ColorSchemeScript defaultColorScheme="dark" />
-      </Head>
+      </head>
       <html lang="ja">
         <body
           className={clsx([
@@ -48,7 +47,7 @@ export default function RootLayout({
             'bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100',
           ])}
         >
-          <MantineProvider>
+          <MantineProvider defaultColorScheme="dark">
             <BgReactIcon />
             <Notifications />
             <Spotlight filenames={filenames} />
