@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
+  images: {
+    domains: ['picsum.photos', 'via.placeholder.com'],
+  },
 };
 
 module.exports = nextConfig;

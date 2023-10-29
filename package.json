@@ -66,6 +66,8 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "msw": "^2.0.1",
+    "msw-storybook-addon": "^1.10.0",
     "prettier": "^3.0.3",
     "scaffdog": "^3.0.0",
     "storybook": "^7.5.1",
