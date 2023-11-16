@@ -2,8 +2,24 @@ import { Suspense } from 'react';
 
 import { IncrementalStaticRegeneration } from '@/app/static-site-generation/components/IncrementalStaticRegeneration';
 import { StaticSiteGeneration } from '@/app/static-site-generation/components/StaticSiteGeneration';
+import { CodeBlock } from '@/components/CodeBlock';
+
+export const revalidate = 30; // データの再検証時間（秒単位）
+const getTime = async () => {
+  const response = await fetch(
+    'http://worldtimeapi.org/api/timezone/Asia/Tokyo',
+  );
+  const data = await response.json();
+
+  return {
+    datetime: data.datetime,
+    unixtime: data.unixtime,
+  };
+};
 
 export default async function StaticSiteGenerationPage() {
+  const isrTime = await getTime();
+
   return (
     <div className="space-y-6">
       <Suspense fallback={<div>StaticSiteGeneration is loading...</div>}>
@@ -17,6 +33,8 @@ export default async function StaticSiteGenerationPage() {
       >
         <IncrementalStaticRegeneration />
       </Suspense>
+      <p>page.tsx ISR</p>
+      <CodeBlock>{JSON.stringify(isrTime, null, 2)}</CodeBlock>
     </div>
   );
 }
