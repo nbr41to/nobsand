@@ -4,10 +4,14 @@ import { IncrementalStaticRegeneration } from '@/app/static-site-generation/comp
 import { StaticSiteGeneration } from '@/app/static-site-generation/components/StaticSiteGeneration';
 import { CodeBlock } from '@/components/CodeBlock';
 
-export const revalidate = 30; // データの再検証時間（秒単位）
 const getTime = async () => {
   const response = await fetch(
     'http://worldtimeapi.org/api/timezone/Asia/Tokyo',
+    {
+      next: {
+        revalidate: 30, // データの再検証時間（秒単位）
+      },
+    },
   );
   const data = await response.json();
 
