@@ -1,11 +1,6 @@
 import { InlineCodeHighlight } from '@mantine/code-highlight';
-import { Suspense } from 'react';
 
 import { CodeBlock } from '@/components/CodeBlock';
-
-import { RefreshButton } from './components/RefreshButton';
-import { RevalidateButton } from './components/RevalidateButton';
-import { RevalidateDateTime } from './components/RevalidateDateTime';
 
 /* ISRしたい */
 // fetchが使用できない場合のConfig
@@ -54,12 +49,6 @@ const getDateTime = async () => {
 };`}
         </CodeBlock>
       </div>
-
-      <RevalidateButton />
-      <RefreshButton />
-      <Suspense fallback={<div>loading...</div>}>
-        <RevalidateDateTime />
-      </Suspense>
     </div>
   );
 }

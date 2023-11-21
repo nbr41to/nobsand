@@ -8,6 +8,7 @@ const getDateTime = async () => {
     {
       next: {
         revalidate: 30,
+        tags: ['london'],
       },
     },
   );
@@ -21,7 +22,9 @@ export default async function RevalidatingPage() {
 
   return (
     <div>
-      <h2>再検証の例</h2>
+      <h2 className="py-3 text-2xl font-bold">
+        fetch options.next.revalidateでISRさせたい
+      </h2>
       <div>
         <h3 className="flex items-center gap-2 text-2xl">
           ISR {'->'}

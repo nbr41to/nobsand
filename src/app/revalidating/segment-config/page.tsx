@@ -2,6 +2,7 @@ import { InlineCodeHighlight } from '@mantine/code-highlight';
 
 import { CodeBlock } from '@/components/CodeBlock';
 
+export const dynamic = 'force-static';
 export const revalidate = 30;
 const getDateTime = async () => {
   const response = await fetch(
@@ -17,7 +18,9 @@ export default async function RevalidatingPage() {
 
   return (
     <div>
-      <h2>再検証の例</h2>
+      <h2 className="py-3 text-2xl font-bold">
+        Segment Config OptionsでISRしたい
+      </h2>
       <div>
         <h3 className="flex items-center gap-2 text-2xl">
           ISR {'->'}

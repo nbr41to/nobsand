@@ -1,15 +1,15 @@
 import { Button } from '@mantine/core';
 import { revalidateTag } from 'next/cache';
 
-export const RevalidateButton = ({ tag }: { tag: string }) => {
+export const RevalidateButton = () => {
   const revalidate = async () => {
     'use server';
-    revalidateTag(tag);
+    revalidateTag('datetime');
   };
 
   return (
     <form action={revalidate}>
-      <Button type="submit">{`revalidateTag(${tag})`}</Button>
+      <Button type="submit">{`revalidateTag('datetime')`}</Button>
     </form>
   );
 };

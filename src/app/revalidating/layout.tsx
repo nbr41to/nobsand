@@ -24,6 +24,9 @@ export default function RevalidatingLayout({
         <Link className="hover:underline" href="/revalidating/segment-config">
           Segment Config Options
         </Link>
+        <Link className="hover:underline" href="/revalidating/revalidate-tag">
+          revalidateTag
+        </Link>
       </div>
       {children}
     </div>

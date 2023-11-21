@@ -23,7 +23,9 @@ const getDateTime = async () => {
 const getDateTimeNoStore = async () => {
   const response = await fetch(
     'http://worldtimeapi.org/api/timezone/Asia/Tokyo',
-    { cache: 'no-store' }, // SSRしたい場合はキャッシュを無効化する
+    {
+      cache: 'no-store',
+    }, // SSRしたい場合はキャッシュを無効化する
     // https://nextjs.org/docs/app/api-reference/functions/fetch#optionscache
   );
   const data = await response.json();
