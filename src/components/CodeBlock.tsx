@@ -13,6 +13,7 @@ export const CodeBlock: FC<Props> = ({ language = 'tsx', children }) => {
   return (
     <div className="rounded-lg border p-0.5">
       <CodeHighlight
+        withCopyButton={false}
         language={language}
         code={children}
         styles={{
