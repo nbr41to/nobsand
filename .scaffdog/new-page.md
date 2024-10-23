@@ -36,7 +36,7 @@ export default function {{ inputs.value | pascal }}Layout({ children }: { childr
 # `{{ inputs.value | kebab }}/page.tsx`
 
 ```tsx
-export default function {{ inputs.value | pascal }}Page() {
+export default function Page() {
   return (
     <div>
       <h2>{/* content */}</h2>

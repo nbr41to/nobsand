@@ -11,7 +11,7 @@ export default function ServerActionsPage() {
   const serverAction = async () => {
     'use server';
     /* バックエンドの処理 */
-    const names = getFileNames();
+    const names = await getFileNames();
     // eslint-disable-next-line no-console
     console.log(names);
   };

@@ -4,6 +4,7 @@ import '@/styles/destyle.css';
 import '@mantine/spotlight/styles.css';
 import '@mantine/code-highlight/styles.css';
 import '@mantine/notifications/styles.css';
+import { LuSandwich, LuCodesandbox } from 'react-icons/lu';
 
 import type { Metadata } from 'next';
 
@@ -26,12 +27,12 @@ export const metadata: Metadata = {
   description: 'Next.js でフロントエンドいろいろ試す場所',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const filenames = getFileNames();
+  const filenames = await getFileNames();
 
   return (
     <>
@@ -53,8 +54,14 @@ export default function RootLayout({
             <Spotlight filenames={filenames} />
             <header className="grid grid-cols-3 border-b border-slate-900 p-4 dark:border-white">
               <SiPowershell size={32} />
-              <Link href="/" title="home">
+              <Link
+                href="/"
+                title="home"
+                className="flex items-center justify-center gap-5"
+              >
+                <LuSandwich size={28} />
                 <h1 className="text-center font-baloo text-4xl">nobsand</h1>
+                <LuCodesandbox size={24} />
               </Link>
               <div className="ml-auto flex items-center gap-4">
                 <a

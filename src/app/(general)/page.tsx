@@ -5,8 +5,8 @@ import { FaQuestion } from 'react-icons/fa6';
 
 import { getFileNames } from '@/utils/getPathnames';
 
-export default function Home() {
-  const fileList = getFileNames();
+export default async function Home() {
+  const fileList = await getFileNames();
 
   return (
     <div className="">
