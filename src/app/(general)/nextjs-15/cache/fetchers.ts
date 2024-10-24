@@ -1,7 +1,7 @@
 'use server';
 
 export const getTimeForceCache = async () => {
-  const response = await fetch('http://localhost:3000/api/get-time', {
+  const response = await fetch('/api/get-time', {
     cache: 'force-cache',
     next: {
       tags: ['getTimeForceCache'],
