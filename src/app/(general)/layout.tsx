@@ -7,12 +7,12 @@ import '@mantine/notifications/styles.css';
 
 import type { Metadata } from 'next';
 
-import { LuSandwich, LuCodesandbox } from 'react-icons/lu';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
+import { LuSandwich, LuCodesandbox } from 'react-icons/lu';
 import { SiPowershell } from 'react-icons/si';
 
 import { Spotlight } from '@/app/(general)/providers/SpotlightProvider';

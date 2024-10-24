@@ -1,4 +1,5 @@
 import { getTimeRevalidate1s } from '../fetchers';
+
 import { RevalidateButton } from './RevalidateButton';
 
 export const TimeRevalidate = async () => {

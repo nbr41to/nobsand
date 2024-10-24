@@ -1,11 +1,10 @@
 'use client';
 
 import { Suspense, useState, type ReactNode } from 'react';
+
 import { LazyComponent } from '../_components/LazyComponent';
 
 export default function Template({ children }: { children: ReactNode }) {
-  console.log('render Template');
-
   const [count, setCount] = useState(0);
 
   return (

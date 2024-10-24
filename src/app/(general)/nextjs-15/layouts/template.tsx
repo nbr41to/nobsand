@@ -3,8 +3,6 @@
 import { useState, type ReactNode } from 'react';
 
 export default function Template({ children }: { children: ReactNode }) {
-  console.log('render Template');
-
   const [count, setCount] = useState(0);
 
   return (

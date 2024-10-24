@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@mantine/core';
+
 import { revalidate } from '../actions';
 
 type Props = {

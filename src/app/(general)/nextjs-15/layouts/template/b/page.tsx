@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+
 import { LazyComponent } from '../../_components/LazyComponent';
 
 export default function Page() {

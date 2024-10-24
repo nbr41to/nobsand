@@ -1,11 +1,9 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { useState, type ReactNode } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
-  console.log('render Layout');
-
   const [count, setCount] = useState(0);
 
   return (
