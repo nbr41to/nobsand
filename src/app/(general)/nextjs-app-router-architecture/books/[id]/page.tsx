@@ -4,11 +4,12 @@ import { getBookById } from '@/app/(general)/nextjs-app-router-architecture/serv
 
 import { BookImage } from '../components/BookImage';
 
-type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+type Params = Promise<{ id: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+type Props = { params: Params; searchParams: SearchParams };
+
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const id = Number(params.id);
 
   const book = await getBookById(id);
@@ -18,7 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page(props: Props) {
+  const params = await props.params;
   const id = Number(params.id);
   const book = await getBookById(id);
 
