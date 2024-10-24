@@ -1,8 +1,4 @@
-import { Suspense } from 'react';
-
 import { TimeForceCache } from './_components/TimeForceCache';
-import { TimeNoStore } from './_components/TimeNoStore';
-import { TimeRevalidate } from './_components/TimeRevalidate';
 
 export default async function Page() {
   const response = await fetch('http://localhost:3000/api/get-time');
@@ -14,13 +10,6 @@ export default async function Page() {
       <div>raw data: {data.time}</div>
       <div>
         <TimeForceCache />
-        <Suspense fallback={<div>Loading...</div>}>
-          <TimeNoStore />
-        </Suspense>
-        <TimeRevalidate />
-        <TimeForceCache />
-        {/* <TimeNoStore /> */}
-        <TimeRevalidate />
       </div>
     </div>
   );
