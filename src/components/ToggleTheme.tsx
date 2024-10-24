@@ -11,7 +11,7 @@ import { BsSun, BsMoonStarsFill } from 'react-icons/bs';
 
 export const ToggleTheme: FC = () => {
   const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme('light', {
+  const computedColorScheme = useComputedColorScheme('dark', {
     getInitialValueInEffect: true,
   });
 

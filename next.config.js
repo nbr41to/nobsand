@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     mdxRs: true,
+    ppr: 'incremental',
   },
   images: {
     domains: ['picsum.photos', 'via.placeholder.com'],

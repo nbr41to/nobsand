@@ -4,10 +4,10 @@ import '@/styles/destyle.css';
 import '@mantine/spotlight/styles.css';
 import '@mantine/code-highlight/styles.css';
 import '@mantine/notifications/styles.css';
-import { LuSandwich, LuCodesandbox } from 'react-icons/lu';
 
 import type { Metadata } from 'next';
 
+import { LuSandwich, LuCodesandbox } from 'react-icons/lu';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import clsx from 'clsx';
@@ -15,7 +15,7 @@ import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
 import { SiPowershell } from 'react-icons/si';
 
-import { Spotlight } from '@/app/providers/SpotlightProvider';
+import { Spotlight } from '@/app/(general)/providers/SpotlightProvider';
 import { BgReactIcon } from '@/components/BgReactIcon';
 import { SearchButton } from '@/components/SearchButton';
 import { ToggleTheme } from '@/components/ToggleTheme';
@@ -37,9 +37,9 @@ export default async function RootLayout({
   return (
     <>
       <head>
-        <ColorSchemeScript defaultColorScheme="dark" />
+        <ColorSchemeScript forceColorScheme="dark" defaultColorScheme="dark" />
       </head>
-      <html lang="ja">
+      <html lang="ja" data-mantine-color-scheme="dark">
         <body
           className={clsx([
             notoSansJP.variable,

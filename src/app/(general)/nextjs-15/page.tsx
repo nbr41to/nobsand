@@ -9,7 +9,21 @@ export default function Page() {
           layout.jsとtemplate.jsの違い
         </Link>
         <p></p>
-        <p>response cacheについて</p>
+        <p>
+          <Link className="hover:underline" href="/nextjs-15/cache">
+            response cacheについて
+          </Link>
+        </p>
+        <p>
+          <Link className="hover:underline" href="/nextjs-15/cache">
+            response cacheについて（force-static）
+          </Link>
+        </p>
+        <p>
+          <Link className="hover:underline" href="/nextjs-15/force-dynamic">
+            response cacheについて（force-dynamic）
+          </Link>
+        </p>
         <p>page cacheについて</p>
         <p>page cacheについて</p>
       </div>
