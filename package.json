@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "bun next build",
-    "dev": "bun next dev --turbo",
+    "build": "next build",
+    "dev": "next dev --turbo",
     "lint": "next lint",
     "spj": "bunx sort-package-json",
     "start": "next start",
